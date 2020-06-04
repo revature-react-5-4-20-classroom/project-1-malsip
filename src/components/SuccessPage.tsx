@@ -7,7 +7,7 @@ export class SuccessPage extends React.Component {
             <div>
                 Success!
                 <p />
-                <Link className="btn btn-outline-dark btn-lg" to={'/userHome'}>Back</Link>
+                <Link className="btn btn-outline-dark btn-lg" to={'/userHome'}>User Home</Link>
             </div>
             
 

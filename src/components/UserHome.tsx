@@ -56,7 +56,6 @@ export class UserHome extends React.Component<IUserHomeProps, IUserHomeState>{
                     
                     const reimbursement = new Reimbursement(element.reimbursementid, element.author, element.amount, element.datesubmitted, element.dateresolved, element.description, element.resolver, element.status, element.type);
 
-
                     if(reimbursement.status !== 'complete' && reimbursement.status !== 'terminated'){
                         //active
                         let exists = false;
@@ -109,23 +108,10 @@ export class UserHome extends React.Component<IUserHomeProps, IUserHomeState>{
             });
         }
         else{
-            console.log('emptying...')
             this.setState({detailedReimbursement: '',
-            selected: reimbursement
-        });
+                selected: reimbursement
+            });
         }
-
-        this.setState({detailedReimbursement: `ID: ${reimbursement.reimbursementId}\n
-        Author: ${reimbursement.author}\n
-        Amount: ${reimbursement.amount}\n
-        Date Submitted: ${reimbursement.dateSubmitted}\n
-        Date Resolved: ${reimbursement.dateResolved}\n
-        Description: ${reimbursement.description}\n
-        Resolver: ${reimbursement.resolver}\n
-        Status: ${reimbursement.status}\n
-        Type: ${reimbursement.type}\n`,
-        selected: reimbursement
-        });
     }
 
     updateUserLists(reimbursement: Reimbursement){
@@ -160,6 +146,23 @@ export class UserHome extends React.Component<IUserHomeProps, IUserHomeState>{
                             </div>
                             <p />
                             <Link className="btn btn-outline-dark btn-lg" to={'/createReimbursement'}>New Reimbursement</Link>
+                            <p />
+                            <br />
+                            <div>
+                                <h5>User information:<br /></h5>
+                                <h5>
+                                    ID: {this.props.user.userId}<br />
+                                    Username: {this.props.user.username}<br />
+                                    First Name: {this.props.user.firstName}<br />
+                                    Last Name: {this.props.user.lastName}<br />
+                                    Email: {this.props.user.email}<br />
+                                    Role: {this.props.user.role}<br />
+                                </h5>
+                                <p />
+                                <div className="d-flex flex-row">
+                                    <Link className="btn btn-outline-dark btn-lg" to={'/modifyUserInfo'}>Change Information</Link>
+                                </div>
+                            </div>
                         </div>
                         <div className="col-4">
                             <h6>Reimbursement history:</h6>
@@ -183,9 +186,7 @@ export class UserHome extends React.Component<IUserHomeProps, IUserHomeState>{
                         </div>
                     </div>
                     <p />
-                    <div className="d-flex flex-row-reverse">
-                        <Link className="btn btn-outline-dark btn-lg" to={'/modifyUserInfo'}>Change Information</Link>
-                    </div>
+                    
                     
                 </div>
             );

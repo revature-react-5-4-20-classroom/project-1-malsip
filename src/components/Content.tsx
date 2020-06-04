@@ -8,6 +8,8 @@ import { Logout } from './Logout';
 import { ModifyUserInfo } from './ModifyUserInfo';
 import { SuccessPage } from './SuccessPage';
 import { CreateReimbursement } from './CreateReimbursement';
+import { UserSearch } from './UserSearch';
+import { ReimbursementSearch } from './ReimbursementSearch';
 
 
 interface IContentProps{
@@ -54,6 +56,8 @@ export class Content extends React.Component<IContentProps, IContentState>{
             <Route path="/modifyUserInfo" render={()=><ModifyUserInfo user={this.props.user} setUser={(u:Users)=>this.props.setUser(u)}/>} />
             <Route path="/success" component={SuccessPage} />
             <Route path="/createReimbursement" render={()=><CreateReimbursement user={this.props.user} />} />
+            <Route path="/users" render={()=><UserSearch user={this.props.user} />} />
+            <Route path="/reimbursements" render={()=><ReimbursementSearch user={this.props.user} />} />
         </div>
       );
     }

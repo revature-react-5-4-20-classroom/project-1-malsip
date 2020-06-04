@@ -47,6 +47,7 @@ export class ManagerHome extends React.Component<IManagerHomeProps, IManagerHome
                 }
                 
                 const reimbursement = new Reimbursement(element.reimbursementid, element.author, element.amount, element.datesubmitted, element.dateresolved, element.description, element.resolver, element.status, element.type);
+                
                 if(reimbursement.status !== 'complete' && reimbursement.status !== 'terminated'){
                     let exists = false;
                     this.state.allPendingReimbursements.forEach((p)=>{
@@ -76,20 +77,16 @@ export class ManagerHome extends React.Component<IManagerHomeProps, IManagerHome
         await updateReimbursement(localSelected.reimbursementId, 2020, this.props.user.userId, status);
 
         let newReimTemp: Reimbursement[] = [];
-        let removed: boolean = false;
         this.state.allPendingReimbursements.forEach((e)=>{
             if(e.reimbursementId !== localSelected.reimbursementId){
                 newReimTemp.push(e);
             }
-            else{
-                removed = true;
-            }
         });
         this.setState({allPendingReimbursements: newReimTemp})
 
-        if(!removed){
-            this.props.updateUserLists(localSelected);
-        }    
+        this.props.updateUserLists(localSelected);
+
+            
         
         console.log(status);
     }
