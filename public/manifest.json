@@ -1,0 +1,9 @@
+{
+  "short_name": "Project 1",
+  "name": "React app front end for project 1",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
