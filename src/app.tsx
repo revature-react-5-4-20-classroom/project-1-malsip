@@ -58,7 +58,7 @@ export class App extends React.Component<{}, IAppState>{
                     <Header username={this.state.user.username}/>
                 </div>
                 <div className="container-fluid">
-                    <div className="row" style={{margin: 0}}>
+                    <div className="row w-100 overflow-auto" style={{margin: 0, whiteSpace: 'nowrap', minWidth: 1420 + 'px' }}>
                             <Navigation username={this.state.user.username}/>
                             <Content setUser={(u: Users)=>this.setUser(u)} username={this.state.user.username} user={this.state.user}/>
                     </div>

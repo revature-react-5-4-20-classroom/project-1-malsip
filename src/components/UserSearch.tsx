@@ -268,11 +268,11 @@ export class UserSearch extends React.Component<IUserSearchProps, IUserSearchSta
                             <p />
                             <h5>Matching Users:<br /></h5>
                             <div className="list-group rounded-lg" style={{height:300, overflowY: 'scroll', background: 'grey'}}>
-                                <h5 style={{marginLeft:15, lineHeight:1, marginTop:15}}>
+                                
                                 {this.state.allMatchingUsers.map((e) => {
-                                    return (<button className="btn btn-outline-dark btn-lg" onClick={() => this.updateselectedUser(e)} key={`uID${e.userId}`} style={{width:290}}>Id: {e.userId}<br />Username: {e.username}</button>);
+                                    return (<button className="btn btn-outline-dark btn-lg" onClick={() => this.updateselectedUser(e)} key={`uID${e.userId}`}>Id: {e.userId}<br />Username: {e.username}</button>);
                                 })}
-                                </h5>
+                                
                             </div>
                         </div>
                     </div>
